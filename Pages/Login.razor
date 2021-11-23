@@ -1,0 +1,19 @@
+﻿@page "/login"
+@inject AuthenticationStateProvider i_authenticationStateProvider
+@inject DBAbstraction i_db;
+@inject IConfiguration i_config;
+
+@(authState)
+<br/>
+<div style="display:flex;flex-direction:row;">
+    <div>
+        Your email<input type="text" @bind-value="@login" />
+    </div>
+    <div>
+        Your password<input type="text" @bind-value="@password" />
+    </div>
+    <button @onclick="(e)=>Submit()">Submit</button>
+</div>
+
+
+

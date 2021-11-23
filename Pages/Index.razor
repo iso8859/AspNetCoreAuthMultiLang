@@ -1,0 +1,40 @@
+﻿@page "/"
+@using System.Security.Claims
+
+<AuthorizeView>
+    <Authorized>
+
+        <PageTitle>Index</PageTitle>
+
+        <h1>Hello, world!</h1>
+        @if (m_user.Identity.IsAuthenticated)
+        {
+            <span>ok</span>
+        }
+
+        Welcome to your new app.
+
+        <SurveyPrompt Title="How is Blazor working for you?" />
+    </Authorized>
+    <NotAuthorized>
+        <Login />
+    </NotAuthorized>
+</AuthorizeView>
+
+@code
+{
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    ClaimsPrincipal m_user;
+
+    protected override async Task OnInitializedAsync()
+    {
+        m_user = await GetUserAsync();
+    }
+
+    async Task<ClaimsPrincipal> GetUserAsync()
+    {
+        return (await authenticationStateTask).User;
+    }
+
+}
