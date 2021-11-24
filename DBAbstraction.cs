@@ -6,7 +6,7 @@
         public abstract long GetUserId(string login);
     }
 
-    public class DBJson : DBAbstraction
+    public class DBMemory : DBAbstraction
     {
         public override bool IsUserPasswordOk(string login, string password)
         {
