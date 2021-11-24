@@ -1,12 +1,12 @@
 ﻿@page "/fetchdata"
 <AuthorizeView>
     <Authorized>
-        <PageTitle>Weather forecast for @(auth.m_login)</PageTitle>
+        <PageTitle>Weather forecast</PageTitle>
 
         @using AspNetCoreAuthMultiLang.Data
         @inject WeatherForecastService ForecastService
 
-        <h1>Weather forecast</h1>
+        <h1>Weather forecast for @(auth.m_login)</h1>
 
         <p>This component demonstrates fetching data from a service.</p>
 
