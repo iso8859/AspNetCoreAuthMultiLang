@@ -7,14 +7,13 @@ using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 
+// For authentication
 builder.Services.AddOptions();
 builder.Services.AddAuthorizationCore();
-
 // Here create an instance of the DB layer you want to use
 builder.Services.AddSingleton<AspNetCoreAuthMultiLang.DBAbstraction>(new AspNetCoreAuthMultiLang.DBMemory());
 // Here we specify our version of AuthenticationStateProvider
@@ -55,6 +54,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+// For authentication
 app.UseAuthentication();
 app.UseAuthorization();
 
