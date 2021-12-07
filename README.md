@@ -8,9 +8,13 @@ Objectives:
 - Support page reload
 
 For multi-language management install Visual Studio Tool ResXManager
+
 https://marketplace.visualstudio.com/items?itemName=TomEnglert.ResXManager
+
 Create a folder named Resources/Pages
+
 Add resource file with exact same name as pages, for exemple Index.resx
+
 Open in menu Tools/ResX Manager, add languages and create key/values pair
 
 Look at comments in Program.cs
