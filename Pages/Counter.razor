@@ -18,11 +18,11 @@
 
 @code {
     [Inject] AuthenticationStateProvider i_authenticationStateProvider { get; set; }
-    myServerAuthenticationStateProvider auth;
+    MyServerAuthenticationStateProvider auth;
 
     protected override void OnInitialized()
     {
-        auth = (myServerAuthenticationStateProvider)i_authenticationStateProvider;
+        auth = (MyServerAuthenticationStateProvider)i_authenticationStateProvider;
     }
 
     private int currentCount = 0;

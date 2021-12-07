@@ -12,7 +12,7 @@
         Welcome to your new app.
 
         <SurveyPrompt Title="How is Blazor working for you?" />
-        <button @onclick="(e)=>{auth.DoLogoutAsync();}">Logout</button>
+        <button @onclick="(e)=>{auth.DoLogout();}">Logout</button>
         <button @onclick="(e)=>{auth.ApplyCulture(english, path);}">English</button>
         <button @onclick="(e)=>{auth.ApplyCulture(french, path);}">French</button>
     </Authorized>
@@ -23,13 +23,13 @@
 
 @code
 {
-    myServerAuthenticationStateProvider auth;
+    MyServerAuthenticationStateProvider auth;
     string path = "/";
     string french = "fr-FR";
     string english = "en-US";
 
     protected override void OnInitialized()
     {
-        auth = (myServerAuthenticationStateProvider)i_authenticationStateProvider;
+        auth = (MyServerAuthenticationStateProvider)i_authenticationStateProvider;
     }
 }

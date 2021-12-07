@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace AspNetCoreAuthMultiLang
 {
-    public class myServerAuthenticationStateProvider : AuthenticationStateProvider
+    public class MyServerAuthenticationStateProvider : AuthenticationStateProvider
     {
 
         public readonly IConfiguration configuration;
         public readonly NavigationManager navigationManager;
         public readonly ProtectedSessionStorage protectedSessionStore;
         public readonly IHttpContextAccessor httpContextAccessor;
-        public myServerAuthenticationStateProvider(IConfiguration Configuration, 
+        public MyServerAuthenticationStateProvider(IConfiguration Configuration, 
             NavigationManager NavigationManager,
             ProtectedSessionStorage ProtectedSessionStore,
             IHttpContextAccessor HttpContextAccessor)
@@ -60,6 +60,10 @@ namespace AspNetCoreAuthMultiLang
                 ApplyCulture(m_culture, path);
         }
 
+        public void DoLogout()
+        {
+            Task.Run(async () => { await DoLogoutAsync(); }).Wait();
+        }
         public async Task DoLogoutAsync()
         {
             m_login=null;
@@ -69,7 +73,7 @@ namespace AspNetCoreAuthMultiLang
 
         public override Task<AuthenticationState> GetAuthenticationStateAsync()
         {
-            AuthenticationState result = null;
+            AuthenticationState result;
             if (IsAuthenticated())
             {
                 result = new AuthenticationState(

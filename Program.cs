@@ -16,7 +16,7 @@ builder.Services.AddAuthorizationCore();
 // Here create an instance of the DB layer you want to use
 builder.Services.AddSingleton<AspNetCoreAuthMultiLang.DBAbstraction>(new AspNetCoreAuthMultiLang.DBMemory());
 // Here we specify our version of AuthenticationStateProvider
-builder.Services.AddScoped<AuthenticationStateProvider, AspNetCoreAuthMultiLang.myServerAuthenticationStateProvider>();
+builder.Services.AddScoped<AuthenticationStateProvider, AspNetCoreAuthMultiLang.MyServerAuthenticationStateProvider>();
 
 #region Localization
 builder.Services.AddHttpContextAccessor();

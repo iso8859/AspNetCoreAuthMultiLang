@@ -46,12 +46,12 @@
 
 @code {
     [Inject] AuthenticationStateProvider i_authenticationStateProvider { get; set; }
-    myServerAuthenticationStateProvider auth;
+    MyServerAuthenticationStateProvider auth;
     private WeatherForecast[]? forecasts;
 
     protected override async Task OnInitializedAsync()
     {
-        auth = (myServerAuthenticationStateProvider)i_authenticationStateProvider;
+        auth = (MyServerAuthenticationStateProvider)i_authenticationStateProvider;
         forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
     }
 }

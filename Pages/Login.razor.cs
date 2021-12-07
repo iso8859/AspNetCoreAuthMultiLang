@@ -6,7 +6,7 @@ namespace AspNetCoreAuthMultiLang.Pages
     public partial class Login
     {
         string login = "admin", password = "admin";
-        myServerAuthenticationStateProvider auth;
+        MyServerAuthenticationStateProvider auth;
 
         [Inject] AuthenticationStateProvider i_authenticationStateProvider { get; set; }
         [Inject] NavigationManager i_navigationManager { get; set; }
@@ -14,7 +14,7 @@ namespace AspNetCoreAuthMultiLang.Pages
 
         protected override void OnInitialized()
         {
-            auth = (myServerAuthenticationStateProvider)i_authenticationStateProvider;
+            auth = (MyServerAuthenticationStateProvider)i_authenticationStateProvider;
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
