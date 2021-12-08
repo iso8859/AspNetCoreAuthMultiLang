@@ -8,7 +8,7 @@
 
         <PageTitle>Index</PageTitle>
 
-        <h1>@i_localizer["Hello"], @(auth.m_login)</h1>
+        <h1>@i_localizer["Hello"], @(auth.m_login) - @context.User.Identity.Name</h1>
         Welcome to your new app.
 
         <SurveyPrompt Title="How is Blazor working for you?" />

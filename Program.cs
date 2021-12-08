@@ -17,9 +17,9 @@ builder.Services.AddAuthorizationCore();
 builder.Services.AddSingleton<AspNetCoreAuthMultiLang.DBAbstraction>(new AspNetCoreAuthMultiLang.DBMemory());
 // Here we specify our version of AuthenticationStateProvider
 builder.Services.AddScoped<AuthenticationStateProvider, AspNetCoreAuthMultiLang.MyServerAuthenticationStateProvider>();
+builder.Services.AddHttpContextAccessor();
 
 #region Localization
-builder.Services.AddHttpContextAccessor();
 builder.Services.AddLocalization(option => option.ResourcesPath = "Resources");
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
