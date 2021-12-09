@@ -12,12 +12,24 @@ namespace AspNetCoreAuthMultiLang.Pages
             _masp = (MyServerAuthenticationStateProvider)_asp;
         }
 
+        bool bLogout;
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
             {
                 await _masp.TryLoginAsync();
             }
+            if (bLogout)
+            {
+                bLogout= false;
+                await _masp.DoLogoutAsync();
+            }
+        }
+
+        public void DoLogout()
+        {
+            bLogout=true;
+            StateHasChanged();
         }
     }
 }

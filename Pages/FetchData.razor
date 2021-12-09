@@ -52,6 +52,5 @@
     protected override async Task OnInitializedAsync()
     {
         forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
-        await base.OnInitializedAsync();
     }
 }

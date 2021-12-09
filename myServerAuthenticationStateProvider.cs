@@ -60,14 +60,10 @@ namespace AspNetCoreAuthMultiLang
                 ApplyCulture(m_culture, path);
         }
 
-        public void DoLogout()
-        {
-            Task.Run(async () => { await DoLogoutAsync(); }).Wait();
-        }
         public async Task DoLogoutAsync()
         {
             m_login=null;
-            await protectedSessionStore.DeleteAsync("login");
+            await protectedSessionStore.DeleteAsync("login").ConfigureAwait(false);
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
 

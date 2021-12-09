@@ -9,13 +9,13 @@
 
         <PageTitle>Index</PageTitle>
 
-        <h1>@i_localizer["Hello"], @(auth.m_login) - @context.User.Identity.Name</h1>
+        <h1>@i_localizer["Hello"], @(_masp.m_login) - @context.User.Identity.Name</h1>
         Welcome to your new app.
 
         <SurveyPrompt Title="How is Blazor working for you?" />
-        <button @onclick="(e)=>{auth.DoLogout();}">Logout</button>
-        <button @onclick="(e)=>{auth.ApplyCulture(english, path);}">English</button>
-        <button @onclick="(e)=>{auth.ApplyCulture(french, path);}">French</button>
+        <button @onclick="(e)=>{DoLogout();}">Logout</button>
+        <button @onclick="(e)=>{_masp.ApplyCulture(english, path);}">English</button>
+        <button @onclick="(e)=>{_masp.ApplyCulture(french, path);}">French</button>
     </Authorized>
     <NotAuthorized>
         <Login />
@@ -24,13 +24,7 @@
 
 @code
 {
-    MyServerAuthenticationStateProvider auth;
     string path = "/";
     string french = "fr-FR";
     string english = "en-US";
-
-    protected override void OnInitialized()
-    {
-        auth = (MyServerAuthenticationStateProvider)i_authenticationStateProvider;
-    }
 }
