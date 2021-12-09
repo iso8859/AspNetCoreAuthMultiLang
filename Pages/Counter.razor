@@ -1,11 +1,12 @@
 ﻿@page "/counter"
+@inherits LoadUserContext
 
 <AuthorizeView>
     <Authorized>
 
         <PageTitle>Counter</PageTitle>
 
-        <h1>Counter for @(auth.m_login)</h1>
+        <h1>Counter for @(_masp.m_login) or @(context.User.Identity.Name)</h1>
 
         <p role="status">Current count: @currentCount</p>
 
@@ -17,13 +18,6 @@
 </AuthorizeView>
 
 @code {
-    [Inject] AuthenticationStateProvider i_authenticationStateProvider { get; set; }
-    MyServerAuthenticationStateProvider auth;
-
-    protected override void OnInitialized()
-    {
-        auth = (MyServerAuthenticationStateProvider)i_authenticationStateProvider;
-    }
 
     private int currentCount = 0;
 

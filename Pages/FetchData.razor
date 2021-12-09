@@ -1,4 +1,6 @@
 ﻿@page "/fetchdata"
+@inherits LoadUserContext
+
 <AuthorizeView>
     <Authorized>
         <PageTitle>Weather forecast</PageTitle>
@@ -6,7 +8,7 @@
         @using AspNetCoreAuthMultiLang.Data
         @inject WeatherForecastService ForecastService
 
-        <h1>Weather forecast for @(auth.m_login)</h1>
+        <h1>Weather forecast for @(_masp.m_login) or @(context.User.Identity.Name)</h1>
 
         <p>This component demonstrates fetching data from a service.</p>
 
@@ -45,13 +47,11 @@
 </AuthorizeView>
 
 @code {
-    [Inject] AuthenticationStateProvider i_authenticationStateProvider { get; set; }
-    MyServerAuthenticationStateProvider auth;
     private WeatherForecast[]? forecasts;
 
     protected override async Task OnInitializedAsync()
     {
-        auth = (MyServerAuthenticationStateProvider)i_authenticationStateProvider;
         forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        await base.OnInitializedAsync();
     }
 }

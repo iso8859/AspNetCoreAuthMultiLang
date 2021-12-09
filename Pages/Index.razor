@@ -1,6 +1,7 @@
 ﻿@page "/"
 @inject AuthenticationStateProvider i_authenticationStateProvider
 @inject Microsoft.Extensions.Localization.IStringLocalizer<Index> i_localizer
+@inherits LoadUserContext
 @using System.Security.Claims
 
 <AuthorizeView>
