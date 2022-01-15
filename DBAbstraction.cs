@@ -1,14 +1,14 @@
 ﻿namespace AspNetCoreAuthMultiLang
 {
-    public abstract class DBAbstraction
+    public interface IDBAbstraction
     {
-        public abstract bool IsUserPasswordOk(string login, string password);
-        public abstract long GetUserId(string login);
+        public bool IsUserPasswordOk(string login, string password);
+        public long GetUserId(string login);
     }
 
-    public class DBMemory : DBAbstraction
+    public class DBMemory : IDBAbstraction
     {
-        public override bool IsUserPasswordOk(string login, string password)
+        public bool IsUserPasswordOk(string login, string password)
         {
             if (login == "admin" && password == "admin")
                 return true;
@@ -16,7 +16,7 @@
                 return false;
         }
 
-        public override long GetUserId(string login)
+        public long GetUserId(string login)
         {
             return 1;
         }

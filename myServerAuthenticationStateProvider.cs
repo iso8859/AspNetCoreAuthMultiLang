@@ -12,19 +12,15 @@ namespace AspNetCoreAuthMultiLang
     public class MyServerAuthenticationStateProvider : AuthenticationStateProvider
     {
 
-        public readonly IConfiguration configuration;
         public readonly NavigationManager navigationManager;
         public readonly ProtectedSessionStorage protectedSessionStore;
-        public readonly IHttpContextAccessor httpContextAccessor;
-        public MyServerAuthenticationStateProvider(IConfiguration Configuration, 
+        public MyServerAuthenticationStateProvider(
             NavigationManager NavigationManager,
-            ProtectedSessionStorage ProtectedSessionStore,
-            IHttpContextAccessor HttpContextAccessor)
+            ProtectedSessionStorage ProtectedSessionStore
+            )
         {
-            configuration = Configuration;
             navigationManager = NavigationManager;
             protectedSessionStore = ProtectedSessionStore;
-            httpContextAccessor = HttpContextAccessor;
         }
 
         public string m_login = null;

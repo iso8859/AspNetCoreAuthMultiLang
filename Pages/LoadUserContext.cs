@@ -31,6 +31,16 @@ namespace AspNetCoreAuthMultiLang.Pages
                 await _masp.DoLogoutAsync();
                 bLogout= false;
             }
+            if (_masp.IsAuthenticated())
+            {
+                await OnAfterRenderContextAsync(firstRender);
+            }
+        }
+
+        // In your page override this method to be sure user is authenticated
+        public virtual Task OnAfterRenderContextAsync(bool firstRender)
+        {
+            return Task.CompletedTask;
         }
 
         public void DoLogin(string login, string url)

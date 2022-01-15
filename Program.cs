@@ -14,7 +14,7 @@ builder.Services.AddSingleton<WeatherForecastService>();
 // For authentication
 builder.Services.AddAuthorizationCore();
 // Here create an instance of the DB layer you want to use
-builder.Services.AddSingleton<AspNetCoreAuthMultiLang.DBAbstraction>(new AspNetCoreAuthMultiLang.DBMemory());
+builder.Services.AddSingleton<AspNetCoreAuthMultiLang.IDBAbstraction>(new AspNetCoreAuthMultiLang.DBMemory());
 // Here we specify our version of AuthenticationStateProvider
 builder.Services.AddScoped<AuthenticationStateProvider, AspNetCoreAuthMultiLang.MyServerAuthenticationStateProvider>();
 builder.Services.AddHttpContextAccessor();

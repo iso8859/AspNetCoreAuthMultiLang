@@ -8,7 +8,7 @@ namespace AspNetCoreAuthMultiLang.Pages
         string login = "admin", password = "admin";
 
         [Inject] NavigationManager i_navigationManager { get; set; }
-        [Inject] DBAbstraction i_db { get; set; }
+        [Inject] IDBAbstraction i_db { get; set; }
 
         private void Submit()
         {
