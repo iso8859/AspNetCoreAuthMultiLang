@@ -13,7 +13,7 @@
         Welcome to your new app.
 
         <SurveyPrompt Title="How is Blazor working for you?" />
-        <button @onclick="(e)=>{DoLogout();}">Logout</button>
+        <button @onclick="DoLogoutAsync">Logout</button>
         <button @onclick="(e)=>{_masp.ApplyCulture(english, path);}">English</button>
         <button @onclick="(e)=>{_masp.ApplyCulture(french, path);}">French</button>
     </Authorized>

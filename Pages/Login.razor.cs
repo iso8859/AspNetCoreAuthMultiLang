@@ -10,13 +10,13 @@ namespace AspNetCoreAuthMultiLang.Pages
         [Inject] NavigationManager i_navigationManager { get; set; }
         [Inject] IDBAbstraction i_db { get; set; }
 
-        private void Submit()
+        private async Task SubmitAsync()
         {
             if (!string.IsNullOrEmpty(login) && !string.IsNullOrEmpty(password))
             {
                 if (i_db.IsUserPasswordOk(login, password))
                 {
-                    DoLogin(login, i_navigationManager.Uri.Substring(i_navigationManager.BaseUri.Length-1));
+                    await DoLoginAsync(login, i_navigationManager.Uri.Substring(i_navigationManager.BaseUri.Length-1));
                 }
             }
         }
