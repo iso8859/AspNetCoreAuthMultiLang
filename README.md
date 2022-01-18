@@ -1,6 +1,6 @@
 # AspNetCoreAuthMultiLang
 Template for Blazor ASP.NET 6 Core Server Side authentication from any database in a multi-language project.
-Version 1.0
+Version 1.1
 
 Objectives:
 - Being DB agnostic
@@ -25,7 +25,7 @@ Display language mecanism is handle with a cookie. Because server side blazor ap
 
 When importing in a new project don't forget to add ```<CascadingAuthenticationState>``` in App.razor
 
-Then is protected pages you should use the following scheme
+Protected pages must use the following scheme
 
 ```
 @page "/path"
