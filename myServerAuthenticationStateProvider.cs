@@ -70,7 +70,11 @@ namespace AspNetCoreAuthMultiLang
             {
                 result = new AuthenticationState(
                     new ClaimsPrincipal(
-                        new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, m_login) }, "appName"
+                        new ClaimsIdentity(new[] { 
+                            new Claim(ClaimTypes.Name, m_login),
+                            new Claim(ClaimTypes.Role, "demo_role"),
+                            new Claim(ClaimTypes.Role, "Admin"),
+                        }, "PutAppNameHere"
                 )));
             }
             else

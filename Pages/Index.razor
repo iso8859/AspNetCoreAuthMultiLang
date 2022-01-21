@@ -10,6 +10,12 @@
         <PageTitle>Index</PageTitle>
 
         <h1>@i_localizer["Hello"], @(_masp.m_login) - @context.User.Identity.Name</h1>
+        <ul>
+        @foreach(string role in GetRoles(context.User))
+        {
+            <li>@role</li>
+        }
+        </ul>
         Welcome to your new app.
 
         <SurveyPrompt Title="How is Blazor working for you?" />
